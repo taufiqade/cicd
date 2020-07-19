@@ -1,9 +1,11 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
+
     stages {
         stage('Build') {
             steps {
                 echo 'Hello World ...'
+                sh 'node --version'
                 sh 'npm install'
                 // sh 'docker-compose up -d'
                 // sh 'docker-compose run app npm install'
