@@ -5,12 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Hello World ...'
+                sh 'docker-compose up -d'
+                sh 'docker-compose run app npm install'
             }
         }
         stage('Testing') {
             steps {
                 echo 'Testing ...'
-                sh 'npm run test'
+                sh 'docker-compose run app npm test'
             }
         }
         stage('Deploy') {
