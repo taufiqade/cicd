@@ -4,4 +4,6 @@ const port = 3000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
+app.get('/hi', (req, res) => res.send(`Hi! ${req.query.name}`))
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
